@@ -1,0 +1,13 @@
+<environment>
+   <set1>
+     <host>127.0.0.1</host>
+     <portal>123.456.1.133</portal>
+     <user>Pega</user>
+    </set1>
+    
+    <set2>
+     <host>127.0.0.1</host>
+     <portal>123.456.1.134</portal>
+     <user>Gillian</user>
+    </set2>
+</environment>
