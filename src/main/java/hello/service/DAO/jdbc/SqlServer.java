@@ -15,8 +15,8 @@ public class SqlServer {
 		DriverManagerDataSource dataSource=new DriverManagerDataSource();
         dataSource.setUrl("jdbc:sqlserver://localhost:1433;databaseName=TutorialDB");
         dataSource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        dataSource.setUsername("test1");
-        dataSource.setPassword("1234567");
+        dataSource.setUsername("sa");//test1
+        dataSource.setPassword("123weR456");//1234567
         jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 	
