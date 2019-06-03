@@ -29,7 +29,7 @@ public class PlayerRepositoryTest {
 	public void setUp() {
 		Player p1 = new Player("Tom", 22);
 		Player p2 = new Player("Kate", 30);
-		Player p3 = new Player("Amy³¯", 30);
+		Player p3 = new Player("Amy", 30);
 		assertNull(p1.getId());
 		assertNull(p2.getId());
 		this.playerRepository.save(p1);
@@ -41,7 +41,7 @@ public class PlayerRepositoryTest {
 	@Test
 	public void testFetchData() {
 		Player p1 = playerRepository.findByName("Tom");
-		Player p3 = playerRepository.findByName("Amy³¯");
+		Player p3 = playerRepository.findByName("Amy");
 		assertNotNull(p1);
 		assertEquals(22, p1.getAge());
 		
