@@ -37,7 +37,7 @@ public class DataBaseApplication implements CommandLineRunner {
 
 	@Autowired
 	SqlServer sqlserver;
-	private JdbcTemplate jdbcTemplate = SqlServer.getSqlserverInstance();
+	private JdbcTemplate jdbcTemplate = sqlserver.getSqlserverInstance();
 
 	@Override
 	public void run(String... args) throws Exception {

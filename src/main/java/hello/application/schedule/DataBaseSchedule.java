@@ -28,15 +28,17 @@ public class DataBaseSchedule {
 	
 	@Autowired
 	SqlServer sqlserver;
-	private JdbcTemplate jdbcTemplate = SqlServer.getSqlserverInstance();
+	private JdbcTemplate jdbcTemplate ;
 	
 	public DataBaseSchedule() {
 		// TODO Auto-generated constructor stub
+		logger.info("~~~~~~~~ constructor ~~~~~~~~");
 	}
 	
 	@EventListener(ApplicationReadyEvent.class)
 	public void doSomethingAfterStartup() {
 		logger.info("~~~~~~~~ Start ~~~~~~~~");
+		jdbcTemplate = sqlserver.getSqlserverInstance();
 		buildDBtable();
 	}
 	
