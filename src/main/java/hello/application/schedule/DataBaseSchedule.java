@@ -4,14 +4,13 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.jboss.logging.Logger;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.event.EventListener;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.scheduling.annotation.Scheduled;
 
 import hello.beans.DAO.Customer;
 import hello.constant.MySpringConfig;
@@ -32,18 +31,18 @@ public class DataBaseSchedule {
 	
 	public DataBaseSchedule() {
 		// TODO Auto-generated constructor stub
-		logger.info("~~~~~~~~ constructor ~~~~~~~~");
+		logger.info("~~~~~~~~DataBaseSchedule constructor ~~~~~~~~");
 	}
 	
 	@EventListener(ApplicationReadyEvent.class)
 	public void doSomethingAfterStartup() {
-		logger.info("~~~~~~~~ Start ~~~~~~~~");
+		logger.info("~~~~~~~~DataBaseSchedule Start ~~~~~~~~");
 		jdbcTemplate = sqlserver.getSqlserverInstance();
 		buildDBtable();
 	}
 	
 	public void buildDBtable() {
-		logger.info("~~~~~~~~~~~~~scheduling~~~~~~~~~~~~~");
+		logger.info("~~~~~~~~~~~~~DataBaseSchedule scheduling~~~~~~~~~~~~~");
 		
 		mySpringConfig.setUp();
 		logger.info("===HOST=== " + mySpringConfig.getPath());

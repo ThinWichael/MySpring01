@@ -27,7 +27,4 @@ public enum Status {
 		return code;
 	}
 
-	
-	
-    
 }

@@ -5,6 +5,10 @@ public class AuthorizationRequest {
 	private String user;
 	private String pwd;
 	
+	public AuthorizationRequest(String user, String pwd){
+		this.user = user;
+		this.pwd = pwd;
+	}
 	
 	public String getUser() {
 		return user;

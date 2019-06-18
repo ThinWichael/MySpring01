@@ -10,6 +10,7 @@ public class AuthorizationService {
 
 	public AuthorizationResponse getAuth(AuthorizationRequest authorizationRequest) {
 		AuthorizationResponse authorizationResponse = new AuthorizationResponse();
+		System.out.println("authorizationResponse is :" + authorizationResponse == null? "YES":"NO");
 		// for test ! Actually we need to access database 
 		if("testUser".equals(authorizationRequest.getUser()) &&
 				"12345678".equals(authorizationRequest.getPwd())){
@@ -20,8 +21,12 @@ public class AuthorizationService {
 		return authorizationResponse;
 	}
 	
-	public AuthorizationService() {
-		// TODO Auto-generated constructor stub
+	public String checktest() {
+		return "test OK!";
 	}
+	
+//	public AuthorizationService() {
+//		// TODO Auto-generated constructor stub
+//	}
 
 }
