@@ -1,5 +1,6 @@
 package hello.service;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 
@@ -22,7 +23,7 @@ public class AuthorizationServiceTest {
 	@Test
 	public void test() {
 		
-		when(authorizationService.checktest()).thenReturn("test OK!");
+		assertThat(authorizationService.checktest()).contains("test OK!");
 		System.out.println("~~~~ AuthorizationServiceTest ~~~~~");
 	}
 

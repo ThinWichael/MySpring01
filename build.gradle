@@ -56,6 +56,10 @@ dependencies {
     
     // Database Access: JPA solution
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    // Database Access: mongodb
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+    // mongodb embeded testing tool
+    testCompile("de.flapdoodle.embed:de.flapdoodle.embed.mongo:1.50.5");
     
     // Log4j 
     compile group: 'log4j', name: 'log4j', version: '1.2.17'

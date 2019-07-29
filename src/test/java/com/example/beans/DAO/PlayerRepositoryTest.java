@@ -14,9 +14,9 @@ import hello.application.DemoSpring01Application;
 import hello.beans.DAO.Player;
 import hello.beans.DAO.repository.PlayerRepository;
 
-@SpringBootTest(classes = DemoSpring01Application.class)
-@RunWith(SpringRunner.class)
-//*** If your entity and Jpa repository are at 'different' package, USE below annotation !!!!
+//@SpringBootTest(classes = DemoSpring01Application.class)
+//@RunWith(SpringRunner.class)
+//*** If your entity and Hibernet repository are at 'different' package, USE below annotation !!!!
 @EntityScan(basePackages = {"hello.beans.DAO"} )
 @EnableJpaRepositories(basePackages = {"hello.beans.DAO.repository"})
 
@@ -42,6 +42,7 @@ public class PlayerRepositoryTest {
 	public void testFetchData() {
 		Player p1 = playerRepository.findByName("Tom");
 		Player p3 = playerRepository.findByName("Amy");
+
 		assertNotNull(p1);
 		assertEquals(22, p1.getAge());
 		
