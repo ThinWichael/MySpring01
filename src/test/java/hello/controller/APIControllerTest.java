@@ -5,32 +5,30 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import org.junit.Before;
 
 //import javax.ws.rs.core.MediaType;
 
-import org.hamcrest.Matchers;
-import org.junit.Before;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentMatchers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.http.HttpHeaders;
+
 import org.springframework.http.MediaType;
-import org.springframework.mock.web.MockHttpServletResponse;
+
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
+
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+
 import com.google.gson.Gson;
 
 import hello.DemoSpring01ApplicationTests;
@@ -49,15 +47,20 @@ public class APIControllerTest {
 	@Autowired
     private MockMvc mockMvc;
 	
+	// assume AuthorizationService is not finished but we need to write controller test code
 	@MockBean
 	private AuthorizationService authorizationService;
 
-	@Test
-	public void getAuthorizationTest() throws Exception {
-		
+	@Before
+	void setMockOutput() {
 //		when(authorizationService.checktest()).thenReturn("test OK!");
 		when(authorizationService.getAuth(ArgumentMatchers.any(AuthorizationRequest.class))).thenReturn(new AuthorizationResponse());
 //		assertThat(authorizationResponse).isNotNull();
+	}
+	
+	@Test
+	public void getAuthorizationTest() throws Exception {
+		
 		System.out.println(authorizationService.checktest());
 		
 		Gson gson = new Gson();
